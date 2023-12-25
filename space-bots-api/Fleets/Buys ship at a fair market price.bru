@@ -1,0 +1,21 @@
+meta {
+  name: Buys ship at a fair market price
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/fleets/{{fleetId}}/buy-ships
+  body: json
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "shipsToBuy": {}
+  }
+}

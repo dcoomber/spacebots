@@ -1,0 +1,21 @@
+meta {
+  name: Returns the list of your fleets
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/fleets/my
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+script:post-response {
+  let data = res.getBody();
+  bru.setVar("systemId", data[0].locationSystemId);
+  bru.setVar("fleetId", data[0].id);
+}

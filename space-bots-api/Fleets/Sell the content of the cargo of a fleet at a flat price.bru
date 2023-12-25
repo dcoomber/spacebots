@@ -1,0 +1,21 @@
+meta {
+  name: Sell the content of the cargo of a fleet at a flat price
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/fleets/{{fleetId}}/direct-sell
+  body: json
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "resources": {}
+  }
+}

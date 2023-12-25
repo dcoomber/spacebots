@@ -1,0 +1,21 @@
+meta {
+  name: Order your fleet to travel to an adjacent system
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/fleets/{{fleetId}}/travel
+  body: json
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "destinationSystemId": "{{neighbouringSystemId}}"
+  }
+}

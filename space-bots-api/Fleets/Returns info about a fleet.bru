@@ -1,0 +1,15 @@
+meta {
+  name: Returns info about a fleet
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/fleets/{{fleetId}}
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}

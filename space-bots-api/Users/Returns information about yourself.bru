@@ -1,0 +1,15 @@
+meta {
+  name: Returns information about yourself
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/users/me
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}

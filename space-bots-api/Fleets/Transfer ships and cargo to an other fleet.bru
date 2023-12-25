@@ -1,0 +1,25 @@
+meta {
+  name: Transfer ships and cargo to an other fleet
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/fleets/{{fleetId}}/transfer
+  body: json
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+    "targetFleetId": "",
+    "resourcesFromFleetToTarget": {},
+    "resourcesFromTargetToFleet": {},
+    "shipsFromFleetToTarget": {},
+    "shipsFromTargetToFleet": {}
+  }
+}

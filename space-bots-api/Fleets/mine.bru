@@ -1,0 +1,19 @@
+meta {
+  name: Order your fleet to start mining
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/fleets/{{currentFleetId}}/mine
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+assert {
+  res.status: eq 200
+}

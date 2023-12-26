@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{baseUrl}}/v1/fleets/{{fleetId}}/buy-ships
+  url: {{baseUrl}}/v1/fleets/{{currentFleetId}}/buy-ships
   body: json
   auth: none
 }
@@ -16,6 +16,12 @@ auth:bearer {
 
 body:json {
   {
-    "shipsToBuy": {}
+    "shipsToBuy": {
+      "miner": 1
+    }
   }
+}
+
+assert {
+  res.status: eq 200
 }

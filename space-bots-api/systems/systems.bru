@@ -1,0 +1,30 @@
+meta {
+  name: Return info about a system
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/systems/{{currentSystemId}}
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  let status = res.getStatus();
+  
+  if ( status === 200 ) {
+    let data = res.getBody();
+    let adjacentSystems = data.neighboringSystems;
+  
+    bru.setVar("nextSystemId", data.neighboringSystems[Math.floor(Math.random() * adjacentSystems.length)].systemId);
+  }
+}

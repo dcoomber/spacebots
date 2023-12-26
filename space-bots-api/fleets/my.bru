@@ -14,8 +14,13 @@ auth:bearer {
   token: 
 }
 
+assert {
+  res.status: eq 200
+}
+
 script:post-response {
+  let fleetInstance = bru.getEnvVar("fleetInstance");
   let data = res.getBody();
-  bru.setVar("systemId", data[0].locationSystemId);
-  bru.setVar("fleetId", data[0].id);
+  bru.setVar("currentFleetId", data[fleetInstance].id);
+  bru.setVar("currentSystemId", data[fleetInstance].locationSystemId);
 }

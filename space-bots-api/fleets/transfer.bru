@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{baseUrl}}/v1/fleets/{{fleetId}}/transfer
+  url: {{baseUrl}}/v1/fleets/{{currentFleetId}}/transfer
   body: json
   auth: none
 }
@@ -22,4 +22,8 @@ body:json {
     "shipsFromFleetToTarget": {},
     "shipsFromTargetToFleet": {}
   }
+}
+
+assert {
+  res.status: eq 200
 }

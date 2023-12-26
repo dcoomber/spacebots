@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{baseUrl}}/v1/fleets/{{fleetId}}/direct-sell
+  url: {{baseUrl}}/v1/fleets/{{currentFleetId}}/direct-sell
   body: json
   auth: none
 }
@@ -16,6 +16,12 @@ auth:bearer {
 
 body:json {
   {
-    "resources": {}
+    "resources": {
+      "mithril": 207
+    }
   }
+}
+
+assert {
+  res.status: eq 200
 }

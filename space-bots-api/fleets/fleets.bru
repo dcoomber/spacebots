@@ -1,0 +1,28 @@
+meta {
+  name: Returns info about a fleet
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/fleets/{{currentFleetId}}
+  body: none
+  auth: none
+}
+
+auth:bearer {
+  token: 
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  let status = res.getStatus();
+  
+  if ( status === 200 ) {
+    let data = res.getBody();
+    bru.setVar("currentSystemId", data.locationSystemId);
+  }
+}
